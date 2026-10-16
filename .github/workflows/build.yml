@@ -29,7 +29,7 @@ jobs:
           rm -f test/widget_test.dart
           python3 tool/patch_android_manifest.py
           flutter pub get
-          dart run flutter_launcher_icons
+          sed -i "s/ios: true/ios: false/" pubspec.yaml && dart run flutter_launcher_icons
       - name: Build APK
         working-directory: _p/mujaz/app
         run: flutter build apk --release
